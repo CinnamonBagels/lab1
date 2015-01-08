@@ -4,22 +4,48 @@
 <head>
 	<meta charset="utf-8">
 	<title>HCI Project Portfolio</title>
+	<link rel="stylesheet" href="./css/foundation.min.css">
+	<link rel="stylesheet" href="./css/normalize.css">
 </head>
 
 <body>
 	<!-- this is a comment in HTML -->
-	<h1>Scott Klemmer</h1> <!-- h1 through h5 are headers. The higher the number, the smaller the header -->
-	<h4>Project Portfolio</h4>
-
+	<div class="row">
+		<div class="row">
+			<div class="columns large-12 text-center">
+				<h1>Samuel Ko</h1> <!-- h1 through h5 are headers. The higher the number, the smaller the header -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="columns large-12 text-center">
+				<h4>Project Portfolio</h4>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="columns large-12 text-center">
+			<p>Samuel Ko is a currently a software developer for UCSD's Division of Biomedical Informatics. He loves working with Node.js and JavaScript, and is always willing to learn more about it! </p>
+		</div>
+	</div>
 	<!-- p means paragraph -->
-	<p>Scott is an Associate Professor of Cognitive Science and Computer Science & Engineering at UC San Diego, where he is a co-founder and Associate Director of the Design Lab. He previously served as Associate Professor of Computer Science at Stanford, where he co-directed the HCI Group, held the Bredt Faculty Scholar chair, and was a founding participant in the d.school. </p>
-
-	<h4>Projects</h4>
+	
+	<div class="row">
+		<div class="columns large-12 text-center">
+			<h4>Hackathon Projects</h4>
+		</div>
+	</div>
 	<ol>
-		<li>Design Thinking</li>
-		<li>Needfinding</li>
-		<li>Prototyping</li>
-		<li>...</li>
+		<li><a href="https://ragereducer.herokuapp.com">Rage.reduce()</a></li>
+		<li><a href="https://tender4food.herokuapp.com">Tender 4 Food</a></li>
+		<li><a href="https://reciption.herokuapp.com">Receives</a></li>
 	</ol>
+	<script src="js/jquery.js"></script>
+	<script src="js/foundation.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(document).foundation();
+		});
+	</script>
 </body>
 </html>
