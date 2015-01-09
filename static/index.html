@@ -23,6 +23,7 @@
 	    <ul class="left">
 	    <li><a href="index.html">Home</a></li>
 	      <li><a href="projects.html">Projects</a></li>
+	      <li><a id="konami" class="nopls" href="secret.html"><b>Konami Button</b></a></li>
 	    </ul>
 	  </section>
 	</nav>
@@ -34,7 +35,9 @@
 		</div>
 		<div class="row">
 			<div class="columns large-12 text-center">
-				<h4>Project Portfolio</h4>
+				<div class="panel">
+					<h4>Project Portfolio</h4>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -44,12 +47,66 @@
 			<p>Samuel Ko is a currently a software developer for UCSD's Division of Biomedical Informatics. He loves working with Node.js and JavaScript, and is always willing to learn more about it! He loves going to hackathons to create crazy shizz.</p>
 		</div>
 	</div>
+	<div class="row">
+		<div class="columns large-12 text-center">
+			<p><a class="button success" href="projects.html">Check out some of the stuff he did!</a></p>
+		</div>
+	</div>
+	<div class="row">
+		<div id="last" class="columns large-12 text-center">
+			
+		</div>
+	</div>
 	<!-- p means paragraph -->
 	<script src="js/jquery.js"></script>
 	<script src="js/foundation.min.js"></script>
 	<script>
 		$(document).ready(function() {
+
+			Array.prototype.equals = function (array) {
+			    // if the other array is a falsy value, return
+			    if (!array)
+			        return false;
+
+			    // compare lengths - can save a lot of time 
+			    if (this.length != array.length)
+			        return false;
+
+			    for (var i = 0, l=this.length; i < l; i++) {
+			        // Check if we have nested arrays
+			        if (this[i] instanceof Array && array[i] instanceof Array) {
+			            // recurse into the nested arrays
+			            if (!this[i].equals(array[i]))
+			                return false;       
+			        }           
+			        else if (this[i] != array[i]) { 
+			            // Warning - two different object instances will never be equal: {x:20} != {x:20}
+			            return false;   
+			        }           
+			    }       
+			    return true;
+			}   
+
+			function ainsleyInit() {
+				$('#konami').removeAttr('id');
+				$('#last').append('KONAMI CODE ACTIVATED'); 
+			}
+
 			$(document).foundation();
+			var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+			var yourInput = [];
+
+			$(document).on('keydown', function(event) {
+				yourInput.push(event.keyCode);
+				if(yourInput.length > 11) {
+					yourInput.shift();
+				}
+				console.log(yourInput);
+
+				if(konamiCode.equals(yourInput)) {
+					ainsleyInit();
+				}
+			})
 		});
 	</script>
 </body>
